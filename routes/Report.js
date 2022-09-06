@@ -4,16 +4,7 @@ const router = express.Router();
 const sequelize = require('sequelize');
 const mysql = require('mysql');
 const { query, response } = require('express');
-const Weekly = require('../models/Weekly');
-const Daily = require('../models/Daily');
-
-const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '1234',
-    database: 'Sordes',
-})
-db.connect();
+const Weight = require('../models/Weight');
 
 function today(){
     const wkday = new Array('SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT');
@@ -28,19 +19,29 @@ function thisweek(){
     return thiswk;
 }
 
-router.get('/', (req, res, next)=>{
-    try{    
-        db.query(`SELECT Weight_${today()} FROM Daily WHERE id=?`, [queryData.id], function(error, dailydata){
-            let dailylist = template.list(dailydata);
-        });
-        db.query(`SELECT Week_${thisweek()} FROM Weekly WHERE id=?`, [queryData.id], function(error, weeklydata){
-            let weeklylist = template.list(weeklydata); 
-        });
-        res.writeHead(200);
-    } catch(error){
-        console.error(error);
-    }
+// http://localhost:3000/report -> GET 요청 보내면
+// 필요한거: 이 요청을 보낸 사용자가 누구인지 확인하는 기능이 필요함 (책 10장 10.3 참고)
+router.get('/', async (req, res, next) => {
+    const id = 1; // 일단 임시로 설정해놓은 유저 아이디 => 유저 아이디 가지고 와야 댐
+
+    const result = await Weight.findAll({
+        where: {
+            userId: id,
+        }
+    });
+
+    res.send(result);
+    //  try{    
+    //     db.query(`SELECT Weight_${today()} FROM Daily WHERE id=?`, [queryData.id], function(error, dailydata){
+    //         let dailylist = template.list(dailydata);
+    //     });
+    //     db.query(`SELECT Week_${thisweek()} FROM Weekly WHERE id=?`, [queryData.id], function(error, weeklydata){
+    //         let weeklylist = template.list(weeklydata); 
+    //     });
+    //     res.writeHead(200);
+    // } catch(error){
+    //     console.error(error);
+    // }
 })
 
-db.end();
 module.exports = router;

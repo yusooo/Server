@@ -1,4 +1,4 @@
-// cconst express = require('express');
+const express = require('express');
 const passport = require('passport');
 const bcrypt = require('bcrypt');
 const { isLoggedIn, isNotLoggedIn } = require('./LogMiddleware');
@@ -6,7 +6,7 @@ const User = require('./User');
 
 const router = express.Router();
 
-router.post('/join', isNotLoggedIn, async(req, res, next)=>{
+router.post('/join', isNotLoggedIn, async (req, res, next)=>{
     const {email, nick, password} = req.body;
     try{
         const exUser = await User.findOne({where: {email}});
@@ -26,7 +26,7 @@ router.post('/join', isNotLoggedIn, async(req, res, next)=>{
     }
 });
 
-router.post('/login', isNotLoggedIn, async(req, res, next) => {
+router.post('/login', isNotLoggedIn, async (req, res, next) => {
     passport.authenticate('local', (authError, user, info)=>{
         if(authError){
             console.error(authError);

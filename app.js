@@ -73,13 +73,13 @@ app.listen(app.get('port'), ()=>{
 
 // DB랑 연동 -> 기존 user 정보가 없을 경우 회원가입 창 띄우기
 
-app.get('/Main', screenRouter);
-app.get('/Repo', repoRouter);
-app.get('/Goal', goalRouter);
-app.get('/Challenge', challengeRouter);
-app.get('/User', userRouter);
-app.get('/HTU', howtouseRouter);
-app.get('/join', join);
+app.use('/Main', screenRouter);
+app.use('/Repo', repoRouter);
+app.use('/Goal', goalRouter);
+app.use('/Challenge', challengeRouter);
+app.use('/User', userRouter);
+app.use('/HTU', howtouseRouter);
+app.use('/join', join);
 
 app.use((err, req, res, next)=>{
     console.err(err);

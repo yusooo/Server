@@ -1,10 +1,9 @@
 const Sequelize = require('sequelize');
 const env = process.env.NODE_ENV || 'development';
 const config = require('../config/config')[env];
-const User = require('./user');
+const User = require('./User');
 const Goal = require('./Goal');
-const Daily = require('./Daily');
-const Weekly = require('./Weekly');
+const Weight = require('./Weight');
 
 const db = {};
 const sequelize = new Sequelize(
@@ -14,18 +13,15 @@ const sequelize = new Sequelize(
 db.sequelize = sequelize;
 db.User = User;
 db.Goal = Goal;
-db.Daily = Daily;
-db.Weekly = Weekly;
+db.Weight = Weight;
 
 
 User.init(sequelize);
 Goal.init(sequelize);
-Daily.init(sequelize);
-Weekly.init(sequelize);
+Weight.init(sequelize);
 
 User.associaate(db);
 Goal.associate(db);
-Daily.associate(db);
-Weekly.associate(db);
+Weight.associate(db);
 
 module.exports = db;

@@ -12,23 +12,27 @@ const getHtml = async() => {
     }
 };
 
-// 크롤링으로 그린피스 챌린지 가져오기
-getHtml()
-    .then((html) => {
-        let sectionList = [];
-        const $ = cheerio.load(html.data);
-        const $bodyList = $('div.outer_block_container').children("section.section-featured section-featured-tips")
-        
-        $bodyList.each(function(i, elem){
-            sectionList[i] = {
-                title: $(this).find('div.tip p').text(),
-                image_url: $(this).find('div.tip-icon img').attr('src'),
-                people: $(this).find('div.tip-commitments').text(),
-            };
+router.get('/', (res, req, next) => {
+    // 크롤링으로 그린피스 챌린지 가져오기
+    const result = getHtml()
+        .then((html) => {
+            let sectionList = [];
+            const $ = cheerio.load(html.data);
+            const $bodyList = $('div.outer_block_container').children("section.section-featured section-featured-tips")
+            
+            $bodyList.each(function(i, elem){
+                sectionList[i] = {
+                    title: $(this).find('div.tip p').text(),
+                    image_url: $(this).find('div.tip-icon img').attr('src'),
+                    people: $(this).find('div.tip-commitments').text(),
+                };
+        });
+
+        const data = sectionList.filter(n => n.title);
+        return data;
     });
 
-    const data = sectionList.filter(n => n.title);
-    return data;
-});
+    res.send(result);
+})
 
 module.exports = router;

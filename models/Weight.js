@@ -4,22 +4,22 @@ module.exports = class Weight extends Sequelize.Model {
     static init(sequelize){
         return super.init({
             weight:{
-                type: Sequelize.INTEGER(),
+                type: Sequelize.DataTypes.STRING,
                 allowNull: false,
                 defaultValue: '0',
             },
             date: {
-                type: Sequelize.DATE(string),
+                type: Sequelize.DataTypes.DATE,
                 allowNull: false,
                 defaultValue: new Date(),
             },
             type:{
-                type: Sequelize.STRING(100),
+                type: Sequelize.DataTypes.STRING,
                 allowNull: false,
                 defaultValue: 'Daily',
             },
             userId: {
-                type: Sequelize.INTEGER,
+                type: Sequelize.DataTypes.INTEGER,
                 allowNull: false,
             }
         },{
