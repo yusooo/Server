@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
-const multer = require('multer');
+const multer= require('multer');
 
 const {isLoggedIn} = require('./LogMiddleware');
 const Goal = require('../models/Goal')
@@ -15,8 +15,8 @@ try{
     fs.mkdirSync('NewGoal');
 }
 
-// multer 설정 필요
-// const Goal = multer();
+// multer 설정 필요 - 완료
+const Goalp = multer();
 
 // POST로 목표값을 DB에 저장
 router.post('/NewGoal', isLoggedIn, async (req, res, next) => {
