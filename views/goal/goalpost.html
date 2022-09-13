@@ -30,20 +30,14 @@
         </div>
         <div class="GoalPost">
             <form name="목표 종류 설정">
-                <table>
-                    <tr>
-                        <td><input type="checkbox" name="checkall" onclick="javascript:CheckAll()"></th>
-                        <td>일일 목표</td>
-                        <td>주간 목표</td>
-                        <td>월간 목표</td>
-                    </tr>
-                </table>
+               <label><input type="radio" value="Daily">일일 목표</label>
+               <label><input type="radio" value="Weekly">주간 목표</label>
+               <label><input type="radio" value="Monthly">월간 목표</label>
             </form>
             <form name="기간 설정">
-                <table>
-                    
-                </table>
-            </form>        
+                <input type="text"><p>일</p>
+            </form>
+            <input type="submit" value="저장하기">
         </div>
     </main>
     <footer>
