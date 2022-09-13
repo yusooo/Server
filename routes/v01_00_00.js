@@ -26,7 +26,7 @@ router.post('/token', async(req, res)=>{
             id: domain.User.id,
             nick: domain.User.nick,
         }, process.env.JWT_SECRET, {
-            expiresInn: '1m',
+            expiresInn: '30m',
             issure: 'Sordes',
         });
         return res.json({
