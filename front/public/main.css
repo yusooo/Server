@@ -46,3 +46,12 @@ section{
     color: #FFF;
     text-decoration: none;
 }
+.gallery{
+    width: 960px;
+    height: 635px;
+    position: relative;
+    margin: 0 auto;
+}
+.gallery input[type=radio]{
+    display: none;
+}
