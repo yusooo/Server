@@ -31,6 +31,7 @@
     "passport-local": "^1.0.0",
     "sequelize": "^6.21.4",
     "sequelize-cli": "^6.4.1",
-    "static": "^0.4.7"
+    "static": "^0.4.7",
+    "uuid": "^9.0.0"
   }
 }

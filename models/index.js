@@ -20,8 +20,10 @@ User.init(sequelize);
 Goal.init(sequelize);
 Weight.init(sequelize);
 
-User.associaate(db);
-Goal.associate(db);
-Weight.associate(db);
+db.User.hasMany(db.Goal, {foreignKey: 'Goal', sourceKey: 'id'});
+db.Goal.belongsTo(db.User, {foreignKey: 'id', targetKey: 'id'});
+
+db.User.hasMany(db.Weight, {foreignKey: 'Weight', sourceKey: 'id'});
+db.Weight.belongsTo(db.User, {foreignKey: 'id', targetKey: 'id'});
 
 module.exports = db;

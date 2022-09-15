@@ -3,6 +3,12 @@ const Sequelize = require('sequelize');
 module.exports = class Goal extends Sequelize.Model{
     static init(sequelize){
         return super.init({
+            id: {
+                type: Sequelize.DataTypes.INTEGER,
+                allowNull: false,
+                unique: true,
+                primaryKey: true,
+            },
             GoalType : { // 종류 설정
                 type: Sequelize.STRING(8),
                 allowNull: false,
@@ -35,12 +41,8 @@ module.exports = class Goal extends Sequelize.Model{
             modelName: 'Goal',
             tableName: 'Goal',
             paranoid: false,
-            charset: 'utf8',
+            charset: 'utf8mb4',
             collate: 'utf8mb4_general_ci',
         });
-    }
-
-    static associate(db) {
-        db.Goal.belongsTo(db.User, {foreignKey: 'id', targetKey: 'id'});
     }
 };

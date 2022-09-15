@@ -3,6 +3,12 @@ const Sequelize = require('sequelize');
 module.exports = class Weight extends Sequelize.Model {
     static init(sequelize){
         return super.init({
+            id:{
+                type: Sequelize.DataTypes.INTEGER,
+                allowNull: false,
+                unique: true,
+                primaryKey: true,
+            },
             weight:{
                 type: Sequelize.DataTypes.STRING,
                 allowNull: false,
@@ -29,12 +35,8 @@ module.exports = class Weight extends Sequelize.Model {
             modelName: 'Weight',
             tableName: 'Weight',
             paranoid: true,
-            charset: 'utf8',
-            collate: 'utf8_general_ci',
+            charset: 'utf8mb4',
+            collate: 'utf8mb4_general_ci',
         })
     }
-
-    static associate(db){
-        db.Weight.belongsTo(db.User, {foreignKey: 'id', targetKey: 'id'})
-    };
 }

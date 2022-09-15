@@ -9,7 +9,7 @@ module.exports = class User extends Sequelize.Model{
                 unique: true,
             },
             id : {
-                type: Sequelize.DataTypes.STRING,
+                type: Sequelize.DataTypes.INTEGER,
                 allowNull: false,
                 unique: true,
                 primaryKey: true,
@@ -39,14 +39,8 @@ module.exports = class User extends Sequelize.Model{
             modelName: 'User',
             tableName: 'User',
             paranoid: true,
-            charset: 'utf8',
-            collate: 'utf8_general_ci',
+            charset: 'utf8mb4',
+            collate: 'utf8mb4_general_ci',
         });
-    }
-
-    static associaate(db) {
-        db.User.hasMany(db.Goal, {foreignKey: 'Goal', sourceKey: 'id'});
-        // db.User.hasMany(db.Daily, {foreignKey: 'Daily', sourceKey: 'id'});
-        db.User.hasMany(db.Weight, {foreignKey: 'Weekly', sourceKey: 'id'});
     }
 }
