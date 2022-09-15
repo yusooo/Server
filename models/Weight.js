@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 
 module.exports = class Weight extends Sequelize.Model {
     static init(sequelize){
-        return super.init({
+        super.init({
             id:{
                 type: Sequelize.DataTypes.INTEGER,
                 allowNull: false,
