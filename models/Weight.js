@@ -3,31 +3,27 @@ const Sequelize = require('sequelize');
 module.exports = class Weight extends Sequelize.Model {
     static init(sequelize){
         super.init({
-            id:{
+            Weight_id:{
                 type: Sequelize.DataTypes.INTEGER,
                 allowNull: false,
                 unique: true,
                 primaryKey: true,
             },
-            weight:{
+            Weight_now:{
                 type: Sequelize.DataTypes.STRING,
                 allowNull: false,
                 defaultValue: '0',
             },
-            date: {
+            Weight_date: {
                 type: Sequelize.DataTypes.DATE,
                 allowNull: false,
                 defaultValue: new Date(),
             },
-            type:{
+            Weight_type:{
                 type: Sequelize.DataTypes.STRING,
                 allowNull: false,
                 defaultValue: 'Daily',
             },
-            userId: {
-                type: Sequelize.DataTypes.INTEGER,
-                allowNull: false,
-            }
         },{
             sequelize,
             timestamps: true,

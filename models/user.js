@@ -3,34 +3,25 @@ const Sequelize = require('sequelize');
 module.exports = class User extends Sequelize.Model{
     static init(sequelize){
         super.init({
-            mail: {
+            user_mail: {
                 type: Sequelize.DataTypes.STRING,
                 allowNull: true,
                 unique: true,
             },
-            id : {
+            user_id : {
                 type: Sequelize.DataTypes.INTEGER,
                 allowNull: false,
                 unique: true,
                 primaryKey: true,
             },
-            nick : {
+            user_nick : {
                 type: Sequelize.DataTypes.STRING,
                 allowNull: false,
                 defaultValue: User.id,
             },
-            pw:{
+            user_pw:{
                 type: Sequelize.DataTypes.STRING,
                 allowNull: false,
-            },
-            provider: {
-                type: Sequelize.DataTypes.STRING,
-                allowNull: false,
-                defaultValue: 'local',
-            },
-            snsId:{
-                type: Sequelize.DataTypes.STRING,
-                allowNull: true,
             },
         }, {
             sequelize,

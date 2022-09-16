@@ -6,6 +6,18 @@ const path = require('path');
 const dotenv = require('dotenv');
 const nunjucks = require('nunjucks');
 const passport = require('passport');
+const cors = require('cors');
+const { createProxyMiddleware } = require('http-proxy-middleware');
+
+module.exports = function(app) {
+    app.use(
+        "/api",
+        createProxyMiddleware({
+            target: "http://localhost:8080",
+            changeOrigin: true,
+        })
+    )
+};
 
 dotenv.config();
 const { sequelize } = require('./models');
@@ -19,8 +31,10 @@ const userRouter = require('./routes/User');
 const challengeRouter = require('./routes/Challenge');
 const howtouseRouter = require('./routes/howtouse');
 const join = require('./routes/join');
+const { create } = require('static');
 
 const app = express();
+app.use(cors({origin: "http://localhost:8080/"}));
 passportConfig();
 app.set('port', process.env.PORT || 8080);
 app.set('view engine', 'html');
@@ -72,6 +86,8 @@ app.use((err, req, res, next)=>{
 app.listen(app.get('port'), ()=>{
     console.log(app.get('port'), '빈 포트에서 대기 중');
 });
+
+app.use(express.static('public'));
 
 // DB랑 연동 -> 기존 user 정보가 없을 경우 회원가입 창 띄우기
 

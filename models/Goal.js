@@ -3,36 +3,36 @@ const Sequelize = require('sequelize');
 module.exports = class Goal extends Sequelize.Model{
     static init(sequelize){
         super.init({
-            id: {
+            Goal_id: {
                 type: Sequelize.DataTypes.INTEGER,
                 allowNull: false,
                 unique: true,
                 primaryKey: true,
             },
-            GoalType : { // 종류 설정
+            Goal_Type : { // 종류 설정
                 type: Sequelize.STRING(8),
                 allowNull: false,
                 defaultValue: 'Daily',
             },
-            GoalLimit : { // 진행 기간 설정
+            Goal_Limit : { // 진행 기간 설정
                 type: Sequelize.INTEGER(8),
                 allowNull: false,
                 defaultValue: '30',
             },
-            GoalSet : { // 목표 설정 : 총 / 일간 배출량
+            Goal_Set : { // 목표 설정 : 총 / 일간 배출량
                 type: Sequelize.STRING(8),
                 allowNull: false,
                 defaultValue: 'total',
             },
-            GoalLimSet : { // 목표 수치 설정
+            Goal_LimSet : { // 목표 수치 설정
                 type: Sequelize.INTEGER(8),
                 allowNull : false,
                 defaultValue: '500',
             },
-            isClosed : {
-                type: Sequelize.STRING(5),
+            Goal_isClosed : {
+                type: Sequelize.BOOLEAN(5),
                 allowNull: false,
-                defaultValue: 'No',
+                defaultValue: 'false',
             }
         }, {
             sequelize,
