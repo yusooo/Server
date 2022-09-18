@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "start",
-    "front": "cd front && npm start",
-    "server": "nodemon --exec node app.js",
+    "front": "concurrently \"cd front\"\"npm start\"",
+    "server": "node app.js",
     "dev": "concurrently \"npm run front\"\"npm run server\""
   },
   "author": "yuso",
@@ -35,7 +35,7 @@
     "nunjucks": "^3.2.3",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
-    "sequelize": "^6.21.4",
+    "sequelize": "^6.23.0",
     "sequelize-cli": "^6.4.1",
     "static": "^0.4.7",
     "uuid": "^9.0.0"

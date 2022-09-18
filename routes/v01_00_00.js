@@ -19,7 +19,7 @@ router.post('/token', async(req, res)=>{
         if(!domain){
             return res.status(401).json({
                 code: 401,
-                message: '등록되지 않은 도메인입니다. 먼저 도메인을 등록해주세요.',
+                message: '등록되지 않은 사용자입니다. 먼저 사용자 등록을 해주세요.',
             });
         }
         const token = jwt.sign({

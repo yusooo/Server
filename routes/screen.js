@@ -15,8 +15,7 @@ router.get('/profile', (req, res) => {
 });
 
 router.get('/', (req, res, next) => {
-    // main 페이지 로딩 (피그마 참고)
-    
+    res.sendFile(__dirname, '../front/views/main.html');
 })
 
 module.exports = router;
