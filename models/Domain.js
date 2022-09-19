@@ -1,4 +1,4 @@
-const Sequelize = reuqire('sequelize');
+const Sequelize = require('sequelize');
 
 module.exports = class Domain extends Sequelize.Model {
     static init(sequelize){

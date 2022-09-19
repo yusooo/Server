@@ -5,44 +5,68 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>소르데스</title>
-    <link rel="stylesheet" href="./public/main.css">
+    <link rel="stylesheet" href="../public/main.css">
     <link rel="stylesheet" href="./public/owl.carousel.min.css">
     <link rel="stylesheet" href="./public/owl.theme.default.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700&display=swap');
+        </style>
 </head>
 <body>
     <header>
         <div id="logo">
-            <img src="image/LOGO.png">
+            <img src="../image/LOGO.png">
         </div>
     </header>
-    <main>
-        <div class="Menu Bar">
-            <label> <span class="material-icons">menu</span>
-                <input type="button" value="Menu" class="menu-btn">
-            </label>
-            <section>
-                <h1> MENU </h1>
+    <main> 
+        <div class="Menu-Bar">
+            <div class="name">
+                    <button  class="menu-btn">Menu</button>   
                 <ul class="menu-lists">
-                    <li class="menu"><a href="http://localhost:8080/Repo">Report</a></li>
-                    <li class="menu"><a href="http://localhost:8080/Challenge">Tip & Challenge</a></li>
-                    <li class="menu"><a href="http://localhost:8080/Goal">Goal</a></li>
-                    <li class="menu"><a href="http://localhost:8080/HTU">How To Use</a></li>
+                    <li class="menu"><a href="./Report.html">Report</a></li>
+                    <li class="menu"><a href="./Tip.html">Tip & Challenge</a></li>
+                    <li class="menu"><a href="./goal/Goal.html">Goal</a></li>
+                    <li class="menu"><a href="./use.html">How To Use</a></li>
                 </ul>
-            </section>
+            </div>
         </div>
-        <div class="owl-carousel owl-theme">
-            <div class="main_banner owl-carousel owl-theme">
-                <div class="item first">
-                    <h2 class="title"></h2>
-                </div>
+        <div class="slider">
+            
+        <div class="slideshow-container">
+            <div class="mySlides fade">
+              <div class="numbertext">1 / 3</div>
+              <img src="../image/LOGO.png">
+              <div class="text">Caption Text</div>
+            </div>
+            
+            <div class="mySlides fade">
+              <div class="numbertext">2 / 3</div>
+              <img src="../image/plus.png">
+              <div class="text">Caption Two</div>
+            </div>
+            
+            <div class="mySlides fade">
+              <div class="numbertext">3 / 3</div>
+              <img src="../image/trash.png">
+              <div class="text">Caption Three</div>
+            </div>
+            
+            </div>
+            <br>
+            
+            <div style="text-align:center">
+              <span class="dot"></span> 
+              <span class="dot"></span> 
+              <span class="dot"></span> 
             </div>
         </div>
     </main>
-    <footer>
+        
+    <!--<footer>
         <li><a href="#">제작자 소개</a></li>
         <li><a href="#">약관</a></li>
         <li><a href="#">사이트맵</a></li>
-    </footer>
-    <script src = "../../../app.js"></script>
+    </footer>-->
+    <script src = "../JS/mainSlide.js"></script>
 </body>
 </html>

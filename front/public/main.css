@@ -3,47 +3,47 @@
     padding: 0;
     box-sizing: border-box;
 }
-label {
-    display: flex;
-    align-items: center;
-    position: relative;
-    top: 30px;
-    left: 30px;
-    transition: .5s;
-}
 .material-icons {
     font-size: 3rem;
-    margin-right: 10px;
+}
+.slideshow-container{
+    display: flex;
+}
+.main{
+    display: flex;
 }
 .menu-btn{
     border: none;
     outline: none;
     background-color: transparent;
-    font-size: 3rem;
+    font-family: 'Nanum Myeongjo', serif;    font-size: 3rem;
 }
-section{
-    background-color: #FFF;
-    color: #ccc;
-    width: 200px;
-    padding-top: 30px;
-    padding-left: 30px;
-    position: absolute;
-    top: 0;
-    left: -200px;
-    bottom: 0;
-    transition: 1s ease;
+.mySlides>img{
+    width: 500px;
+}
+.Menu-Bar{
+    font-family: 'Nanum Myeongjo', serif;    margin-top: 45px;
+    margin-left: 25px;
+    width: 300px;
+    height: 625px;
+    border: 1px solid wheat;
+    border-color: #000;
+    border-radius: 10px;
+}
+.name{
+    margin-left: 30px;
+    margin-top: 45px;
+    margin-bottom: 20px;
 }
 .menu-list{
-    padding-left: 45px;
+    font-family: 'Nanum Myeongjo', serif;
 }
 .menu{
-    margin: 30px 0;
-}
-.menu:nth-child(1){
-    margin-top: 50px;
+    font-size: 20px;
+    margin: 45px;
 }
 .menu a{
-    color: #FFF;
+    color: #000;
     text-decoration: none;
 }
 .gallery{
@@ -54,4 +54,85 @@ section{
 }
 .gallery input[type=radio]{
     display: none;
+}
+
+header{
+    font-size: 55px;
+    background-color: #f0f0f0;
+    height: 80px;
+}
+#logo>img{
+    margin-left: 15px;
+    margin-top: 15px;
+    height: 45px;
+}
+
+* {box-sizing: border-box;}
+body {font-family: Verdana, sans-serif;}
+.mySlides {display: flex;}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
 }

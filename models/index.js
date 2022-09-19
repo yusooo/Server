@@ -29,7 +29,7 @@ db.Goal.belongsTo(db.User, {foreignKey: 'user_id', targetKey: 'user_id'});
 db.User.hasMany(db.Weight, {foreignKey: 'Weight_id', sourceKey: 'user_id'});
 db.Weight.belongsTo(db.User, {foreignKey: 'user_id', targetKey: 'user_id'});
 
-db.User.hasMany(db.Domain, {foreignKey: 'clientSecret', sourceKey: 'user_id'});
+db.User.hasOne(db.Domain, {foreignKey: 'clientSecret', sourceKey: 'user_id'});
 db.Domain.belongsTo(db.User, {foreignKey: 'user_id', targetKey: 'user_id'});
 
 module.exports = db;
