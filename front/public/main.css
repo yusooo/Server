@@ -24,11 +24,6 @@ main{
     border-color: #000;
     border-radius: 10px;
 }
-.name{
-    margin-left: 30px;
-    margin-top: 45px;
-    margin-bottom: 20px;
-}
 .menu-list{
     font-family: 'Nanum Myeongjo', serif;
 }
@@ -40,6 +35,11 @@ main{
     color: #000;
     text-decoration: none;
 }
+.name{
+    margin-left: 30px;
+    margin-top: 45px;
+    margin-bottom: 20px;
+}
 .gallery input[type=radio]{
     display: none;
 }
@@ -47,7 +47,7 @@ main{
 header{
     font-size: 55px;
     background-color: #f0f0f0;
-    height: 80px;
+    height: 100px;
 }
 #logo>img{
     margin-left: 15px;
@@ -60,6 +60,9 @@ body {font-family: Verdana, sans-serif;}
 img {vertical-align: middle;}
 
 /* Slideshow container */
+.slider{
+  margin: auto;
+}
 .slideshow-container {
   margin : auto auto;
   display: flex;
@@ -70,7 +73,7 @@ img {vertical-align: middle;}
 .what{
   background-color: none;
   margin : 60px;
-  width: 1200px;
+  width: 800px;
   height: 600px;
 }
 /* The dots/bullets/indicators */

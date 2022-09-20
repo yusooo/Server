@@ -18,6 +18,14 @@ try{
 // multer 설정 필요 - 완료
 const Goalp = multer();
 
+router.get('/', (req, res, next) => {
+    try{
+
+    }catch(error){
+        res.sendFile(__dirname, "../front/views/error.html");
+    }
+});
+
 // POST로 목표값을 DB에 저장
 router.post('/NewGoal', isLoggedIn, async (req, res, next) => {
     try{

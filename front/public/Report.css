@@ -1,20 +1,39 @@
-.Daily-Repo{
-    width: 345px;
-    height: 570px;
-    padding-top: 440px;
-    padding-left: 230px;
+header{
+    font-size: 55px;
+    background-color: #f0f0f0;
+    height: 100px;
 }
-
-.Weekly-Repo{
-    width: 555px;
-    height: 205px;
-    padding-top: 830px;
-    padding-left: 270px;
+.material-icons {
+    font-size: 3rem;
 }
-
-.Monthly-Repo{
-    width: 555px;
-    height: 205px;
-    padding-top: 830px;
-    padding-left: 535px;
+.menu-btn{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-family: 'Nanum Myeongjo', serif;    font-size: 3rem;
+}
+.Menu-Bar{
+    font-family: 'Nanum Myeongjo', serif;    margin-top: 45px;
+    margin-left: 25px;
+    width: 300px;
+    height: 625px;
+    border: 1px solid wheat;
+    border-color: #000;
+    border-radius: 10px;
+}
+.menu-list{
+    font-family: 'Nanum Myeongjo', serif;
+}
+.menu{
+    font-size: 20px;
+    margin: 45px;
+}
+.menu a{
+    color: #000;
+    text-decoration: none;
+}
+.Daily{
+    border: 1 solid wheat;
+    border-color: black;
+    border-radius: 10px;
 }

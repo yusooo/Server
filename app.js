@@ -87,7 +87,7 @@ app.listen(app.get('port'), ()=>{
     console.log(app.get('port'), '빈 포트에서 대기 중');
 });
 
-app.use(express.static('public'));
+app.use(express.static('front'));
 
 // DB랑 연동 -> 기존 user 정보가 없을 경우 회원가입 창 띄우기
 

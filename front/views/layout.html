@@ -5,34 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>소르데스</title>
+    <link rel="stylesheet" href="../public/main.css">
+    <link rel="stylesheet" href="./public/owl.carousel.min.css">
+    <link rel="stylesheet" href="./public/owl.theme.default.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700&display=swap');
+        </style>
 </head>
 <body>
     <header>
         <div id="logo">
-            <img src="image/LOGO.png">
+            <a href="http://localhost:5500/front/views/main.html" target="_self" id="logolink">
+                <img src="../image/LOGO.png" style="margin-left: 15px; margin-top: 15px; height: 45px;">
+            </a>
         </div>
     </header>
-    <main>
-        <div class="Menu Bar">
-            <label> <span class="material-icons">menu</span>
-                <input type="button" value="Menu" class="menu-btn">
-            </label>
-            <section>
-                <h1> MENU </h1>
+    <main> 
+        <div class="Menu-Bar">
+            <div class="name">
+                    <button  class="menu-btn">Menu</button>   
                 <ul class="menu-lists">
-                    <li class="menu"><a href="http://localhost:8080/Repo">Report</a></li>
-                    <li class="menu"><a href="http://localhost:8080/Challenge">Tip & Challenge</a></li>
-                    <li class="menu"><a href="http://localhost:8080/Goal">Goal</a></li>
-                    <li class="menu"><a href="http://localhost:8080/HTU">How To Use</a></li>
+                    <li class="menu"><a href="./Report.html">Report</a></li>
+                    <li class="menu"><a href="./Tip.html">Tip & Challenge</a></li>
+                    <li class="menu"><a href="./Goal.html">Goal</a></li>
+                    <li class="menu"><a href="./use.html">How To Use</a></li>
                 </ul>
-            </section>
+            </div>
         </div>
     </main>
-    <footer>
+        
+    <!--<footer>
         <li><a href="#">제작자 소개</a></li>
         <li><a href="#">약관</a></li>
         <li><a href="#">사이트맵</a></li>
-    </footer>
-    <script src = "../../../app.js"></script>
+    </footer>-->
+    <script src = "../JS/mainSlide.js"></script>
 </body>
 </html>
