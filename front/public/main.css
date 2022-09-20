@@ -3,23 +3,17 @@
     padding: 0;
     box-sizing: border-box;
 }
+main{
+  display: flex;
+}
 .material-icons {
     font-size: 3rem;
-}
-.slideshow-container{
-    display: flex;
-}
-.main{
-    display: flex;
 }
 .menu-btn{
     border: none;
     outline: none;
     background-color: transparent;
     font-family: 'Nanum Myeongjo', serif;    font-size: 3rem;
-}
-.mySlides>img{
-    width: 500px;
 }
 .Menu-Bar{
     font-family: 'Nanum Myeongjo', serif;    margin-top: 45px;
@@ -46,12 +40,6 @@
     color: #000;
     text-decoration: none;
 }
-.gallery{
-    width: 960px;
-    height: 635px;
-    position: relative;
-    margin: 0 auto;
-}
 .gallery input[type=radio]{
     display: none;
 }
@@ -69,36 +57,22 @@ header{
 
 * {box-sizing: border-box;}
 body {font-family: Verdana, sans-serif;}
-.mySlides {display: flex;}
 img {vertical-align: middle;}
 
 /* Slideshow container */
 .slideshow-container {
-  max-width: 1000px;
-  position: relative;
-  margin: auto;
+  margin : auto auto;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 500px;
 }
-
-/* Caption text */
-.text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
+.what{
+  background-color: none;
+  margin : 60px;
+  width: 1200px;
+  height: 600px;
 }
-
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
-
 /* The dots/bullets/indicators */
 .dot {
   height: 15px;
