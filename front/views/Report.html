@@ -11,6 +11,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700&display=swap');
         </style>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
     <header>
@@ -36,9 +37,15 @@
             <button id="Left" onclick="">yesterday</button>
             <button id="Right">tomorrow</button>
             <h2>Daily</h2>
-            <h3>plastic : </h3>
-            <h3>paper : </h3>
-            <h3>can : </h3>
+            <h3>plastic : <form action="../../routes/Report.js" method="post">
+                <input name="result">
+            </form></h3>
+            <h3>paper : <form action="../../routes/Report.js" method="post">
+                <input name="result">
+            </form></h3>
+            <h3>can : <form action="../../routes/Report.js" method="post">
+                <input name="result">
+            </form></h3>
         </div>
         <div class="Weekly">
 

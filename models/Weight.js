@@ -10,7 +10,7 @@ module.exports = class Weight extends Sequelize.Model {
                 primaryKey: true,
             },
             Weight_now:{
-                type: Sequelize.DataTypes.STRING,
+                type: Sequelize.DataTypes.INTEGER,
                 allowNull: false,
                 defaultValue: '0',
             },
@@ -20,9 +20,9 @@ module.exports = class Weight extends Sequelize.Model {
                 defaultValue: new Date(),
             },
             Weight_type:{
-                type: Sequelize.DataTypes.STRING,
+                type: Sequelize.DataTypes.ENUM('DPlastic', 'DPaper', 'DCan', 'YDPlastic', 'YDPaper', 'YDCan', 'WPlastic', 'WPaper', 'WCan'),
                 allowNull: false,
-                defaultValue: 'Daily',
+                defaultValue: 'DPlastic',
             },
         },{
             sequelize,

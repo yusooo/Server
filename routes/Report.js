@@ -5,37 +5,43 @@ const sequelize = require('sequelize');
 const mysql = require('mysql');
 const { query, response } = require('express');
 const Weight = require('../models/Weight');
-const config = require('./config/config.json');
-const connection = mysql.createConnection('config');
+const dbconfig = require('../config/config.json');
+const connection = mysql.createConnection(dbconfig);
 
-function today(){
-    const wkday = new Array('SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT');
-    let whatoday = new Date().getDay();
-    let todaylabel = wkday[whatoday];
-    return todaylabel;
-}
-function thisweek(){
-    const wkordinal = new Array('First', 'Second', 'Third', 'Fourth', 'Fifth');
-    let whatweek = new Date().getWeek();
-    let thiswk = wkordinal[whatweek];
-    return thiswk;
-}
+const axios = require('axios');
+
+// function today(){
+//     const wkday = new Array('SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT');
+//     let whatoday = new Date().getDay();
+//     let todaylabel = wkday[whatoday];
+//     return todaylabel;
+// }
+// function thisweek(){
+//     const wkordinal = new Array('First', 'Second', 'Third', 'Fourth', 'Fifth');
+//     let whatweek = new Date().getWeek();
+//     let thiswk = wkordinal[whatweek];
+//     return thiswk;
+// }
 
 // http://localhost:3000/report -> GET 요청 보내면
 // 필요한거: 이 요청을 보낸 사용자가 누구인지 확인하는 기능이 필요함 (책 10장 10.3 참고)
-router.get('/', async (req, res, next) => {
+router.get('/today', async (req, res, next) => {
     const { user_id } = require( '../models/user' ); // 일단 임시로 설정해놓은 유저 아이디 => 유저 아이디 가지고 와야 댐
 
-    connection.query('SELECT * from Users', (error, rows) => {
-        try{
-            console.log('Hello, ', )
-            console.log('Today\'s weight is ', rows);
-            res.send(rows);
-        }catch(error){
-            console.error(error);
-            next(error);
-        }
+    axios.get(`user?id=${user_id}`)
+    .then(function(res){
+        // connection.query('SELECT * from Weight where Weight_type='D*', (error,rows) => {
+
+        // })
+        Weight.findAll({
+            where: {Weight_type:"D*"},
+        })
+        console.log(res);
     })
+    .catch(function(error){
+        console.error(error);
+    });
+        
 
     res.send(result);
     //  try{    

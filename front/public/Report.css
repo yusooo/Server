@@ -59,7 +59,26 @@ h3{
     border: 1px solid #000000;
 }
 .Weekly{
-    border: 1 solid wheat;
-    border-color: black;
+    box-sizing: border-box;
     border-radius: 10px;
+    position: absolute;
+    width: 556px;
+    height: 206px;
+    left: 900px;
+    top: 225px;
+    padding-left: 30px;
+    background: none;
+    border: 1px solid #000000;
+}
+.Monthly{
+    box-sizing: border-box;
+    border-radius: 10px;
+    position: absolute;
+    width: 556px;
+    height: 206px;
+    left: 900px;
+    top: 500px;
+    padding-left: 30px;
+    background: none;
+    border: 1px solid #000000;
 }

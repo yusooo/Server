@@ -8,6 +8,7 @@ const nunjucks = require('nunjucks');
 const passport = require('passport');
 const cors = require('cors');
 const { createProxyMiddleware } = require('http-proxy-middleware');
+const axios = require('axios');
 
 const app = express();
 
@@ -21,7 +22,12 @@ module.exports = function(app) {
             changeOrigin: true,
         })
     )
-};
+}
+
+axios({
+    url: 'http://112.185.248.156:1989/front/views',
+    method: 'get',
+})
 
 dotenv.config();
 const { sequelize } = require('./models');
