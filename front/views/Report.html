@@ -37,15 +37,18 @@
             <button id="Left" onclick="">yesterday</button>
             <button id="Right">tomorrow</button>
             <h2>Daily</h2>
-            <h3>plastic : <form action="../../routes/Report.js" method="post">
-                <input name="result">
+            <h3><script type="text/javascript">
+                const {DPlastic} = require('../routes/Report.js');
+                let url="http://127.0.0.1:1989/front/views/Report.html";
+                fetch(url).then(response => response.json())
+                .then((result) =>{
+                    let div=document.getElementById('DPlastic');
+                    div.innerHTML=`plastic : ${result.DPlastic}`;
+                })
+            </script>
             </form></h3>
-            <h3>paper : <form action="../../routes/Report.js" method="post">
-                <input name="result">
-            </form></h3>
-            <h3>can : <form action="../../routes/Report.js" method="post">
-                <input name="result">
-            </form></h3>
+            <h3>paper : {{Dpaper}} </h3>
+            <h3>can : {{DCan}}</h3>
         </div>
         <div class="Weekly">
 

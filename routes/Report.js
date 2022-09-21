@@ -30,31 +30,43 @@ router.get('/today', async (req, res, next) => {
 
     axios.get(`user?id=${user_id}`)
     .then(function(res){
-        // connection.query('SELECT * from Weight where Weight_type='D*', (error,rows) => {
-
-        // })
-        Weight.findAll({
-            where: {Weight_type:"D*"},
-        })
-        console.log(res);
+        const DPlastic = Weight.findAll({
+            where: {Weight_type:"DPlastic"},
+        });
+        const DPaper = Weight.findAll({
+            where: {Weight_type:"DPaper"},
+        });
+        const DCan = Weight.findAll({
+            where: {Weight_type:"DCan"},
+        });
     })
     .catch(function(error){
         console.error(error);
     });
-        
-
-    res.send(result);
-    //  try{    
-    //     db.query(`SELECT Weight_${today()} FROM Daily WHERE id=?`, [queryData.id], function(error, dailydata){
-    //         let dailylist = template.list(dailydata);
-    //     });
-    //     db.query(`SELECT Week_${thisweek()} FROM Weekly WHERE id=?`, [queryData.id], function(error, weeklydata){
-    //         let weeklylist = template.list(weeklydata); 
-    //     });
-    //     res.writeHead(200);
-    // } catch(error){
-    //     console.error(error);
-    // }
+    
+    res.json({DPlastic:DPlastic, DPaper:DPaper, DCan:DCan});
 })
+router.get('/yesterday', async (req, res, next) => {
+    const { user_id } = require( '../models/user' ); // 일단 임시로 설정해놓은 유저 아이디 => 유저 아이디 가지고 와야 댐
+
+    axios.get(`user?id=${user_id}`)
+    .then(function(res){
+        const YDPlastic = Weight.findAll({
+            where: {Weight_type:"YDPlastic"},
+        });
+        const YDPaper = Weight.findAll({
+            where: {Weight_type:"YDPaper"},
+        });
+        const YDCan = Weight.findAll({
+            where: {Weight_type:"YDCan"},
+        });
+    })
+    .catch(function(error){
+        console.error(error);
+    });
+    
+    res.json({YDPlastic:YDPlastic, YDPaper:YDPaper, YDCan:YDCan});
+})
+
 
 module.exports = router;
