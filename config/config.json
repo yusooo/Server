@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "root",
-    "password": "1234",
-    "database": "stac",
-    "host": "127.0.0.1",
+    "username": "Pheonix1995!",
+    "password": "SordesSERVER123!",
+    "database": "sordes",
+    "host": "112.185.248.156",
     "dialect": "mysql"
   }
 }

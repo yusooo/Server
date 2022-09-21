@@ -9,11 +9,15 @@ const passport = require('passport');
 const cors = require('cors');
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
+const app = express();
+
+app.set('port', process.env.PORT || 1989);
+
 module.exports = function(app) {
     app.use(
         "/api",
         createProxyMiddleware({
-            target: "http://localhost:8080",
+            target: `http://localhost:1989`,
             changeOrigin: true,
         })
     )
@@ -33,10 +37,8 @@ const howtouseRouter = require('./routes/howtouse');
 const join = require('./routes/join');
 const { create } = require('static');
 
-const app = express();
-app.use(cors({origin: "http://localhost:8080/"}));
+app.use(cors({origin: `http://localhost:/1989`}));
 passportConfig();
-app.set('port', process.env.PORT || 8080);
 app.set('view engine', 'html');
 nunjucks.configure('views', {
     express: app,

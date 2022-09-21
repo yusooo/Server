@@ -5,6 +5,8 @@ const sequelize = require('sequelize');
 const mysql = require('mysql');
 const { query, response } = require('express');
 const Weight = require('../models/Weight');
+const config = require('./config/config.json');
+const connection = mysql.createConnection('config');
 
 function today(){
     const wkday = new Array('SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT');
@@ -24,11 +26,16 @@ function thisweek(){
 router.get('/', async (req, res, next) => {
     const { user_id } = require( '../models/user' ); // 일단 임시로 설정해놓은 유저 아이디 => 유저 아이디 가지고 와야 댐
 
-    const result = await Weight.findAll({
-        where: {
-            user_id: id,
+    connection.query('SELECT * from Users', (error, rows) => {
+        try{
+            console.log('Hello, ', )
+            console.log('Today\'s weight is ', rows);
+            res.send(rows);
+        }catch(error){
+            console.error(error);
+            next(error);
         }
-    });
+    })
 
     res.send(result);
     //  try{    
