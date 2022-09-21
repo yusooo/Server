@@ -49,22 +49,24 @@ router.get('/today', async (req, res, next) => {
 router.get('/yesterday', async (req, res, next) => {
     const { user_id } = require( '../models/user' ); // 일단 임시로 설정해놓은 유저 아이디 => 유저 아이디 가지고 와야 댐
 
-    axios.get(`user?id=${user_id}`)
-    .then(function(res){
-        const YDPlastic = Weight.findAll({
-            where: {Weight_type:"YDPlastic"},
-        });
-        const YDPaper = Weight.findAll({
-            where: {Weight_type:"YDPaper"},
-        });
-        const YDCan = Weight.findAll({
-            where: {Weight_type:"YDCan"},
-        });
-    })
-    .catch(function(error){
-        console.error(error);
-    });
-    
+    async()=>{
+        axios
+            .get(`user?id=${user_id}`)
+            .then(function(response){
+                const YDPlastic = Weight.findAll({
+                    where: {Weight_type:"YDPlastic"},
+                });
+                const YDPaper = Weight.findAll({
+                    where: {Weight_type:"YDPaper"},
+                });
+                const YDCan = Weight.findAll({
+                    where: {Weight_type:"YDCan"},
+                });
+            })
+            .catch(function(error){
+                console.error(error);
+            });
+    }
     res.json({YDPlastic:YDPlastic, YDPaper:YDPaper, YDCan:YDCan});
 })
 

@@ -4,11 +4,12 @@ const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
 const path = require('path');
 const dotenv = require('dotenv');
-const nunjucks = require('nunjucks');
 const passport = require('passport');
 const cors = require('cors');
 const { createProxyMiddleware } = require('http-proxy-middleware');
 const axios = require('axios');
+const ejs = require('ejs');
+const bodyParser = require('body-parser');
 
 const app = express();
 
@@ -44,11 +45,8 @@ const join = require('./routes/join');
 
 app.use(cors({origin: `http://localhost:/1989`}));
 passportConfig();
-app.set('view engine', 'html');
-nunjucks.configure('views', {
-    express: app,
-    watch: true,
-});
+app.set('views', __dirname + './front/views');
+app.set('view engine', 'ejs');
 sequelize.sync({force: false})
     .then(()=>{
         console.log('DB 연결 성공');
@@ -57,6 +55,9 @@ sequelize.sync({force: false})
         console.error(err);
     });
 
+
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.json());
 app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());

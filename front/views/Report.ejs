@@ -12,11 +12,12 @@
         @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700&display=swap');
     </style>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <%-include("../../Report.js")%>
 </head>
 <body>
     <header>
         <div id="logo">
-            <a href="http://112.185.248.156:1989/front/views/main.html" target="_self" id="logolink">
+            <a href="http://112.185.248.156:1989/front/views/main.ejs" target="_self" id="logolink">
                 <img src="../image/LOGO.png" style="margin-left: 15px; margin-top: 15px; height: 45px;">
             </a>
         </div>
@@ -26,10 +27,10 @@
             <div class="name">
                     <button  class="menu-btn">Menu</button>   
                 <ul class="menu-lists">
-                    <li class="menu"><a href="./Report.html" style="font-size: 30px; font: bolder;">Report</a></li>
-                    <li class="menu"><a href="./Tip.html">Tip & Challenge</a></li>
-                    <li class="menu"><a href="./Goal.html">Goal</a></li>
-                    <li class="menu"><a href="./use.html">How To Use</a></li>
+                    <li class="menu"><a href="./Report.ejs" style="font-size: 30px; font: bolder;">Report</a></li>
+                    <li class="menu"><a href="./Tip.ejs">Tip & Challenge</a></li>
+                    <li class="menu"><a href="./Goal.ejs">Goal</a></li>
+                    <li class="menu"><a href="./use.ejs">How To Use</a></li>
                 </ul>
             </div>
         </div>
@@ -37,16 +38,7 @@
             <button id="Left" onclick="">yesterday</button>
             <button id="Right">tomorrow</button>
             <h2>Daily</h2>
-            <h3>plastic : <script>
-                axios
-                .get("http://112.185.248.156:1989/routes/Report.js")
-                .then(function(result){
-                    in
-                })
-                .catch(function(error){
-                    console.error(error);
-                })
-            </script></h3>
+            <h3>plastic : <%= DPlastic %> </h3>
             <h3>paper : {{Dpaper}} </h3>
             <h3>can : {{DCan}}</h3>
         </div>
