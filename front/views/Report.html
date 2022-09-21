@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="./public/owl.theme.default.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700&display=swap');
-        </style>
-        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
     <header>
@@ -37,24 +37,30 @@
             <button id="Left" onclick="">yesterday</button>
             <button id="Right">tomorrow</button>
             <h2>Daily</h2>
-            <h3><script type="text/javascript">
-                const {DPlastic} = require('../routes/Report.js');
-                let url="http://127.0.0.1:1989/front/views/Report.html";
-                fetch(url).then(response => response.json())
-                .then((result) =>{
-                    let div=document.getElementById('DPlastic');
-                    div.innerHTML=`plastic : ${result.DPlastic}`;
+            <h3>plastic : <script>
+                axios
+                .get("http://112.185.248.156:1989/routes/Report.js")
+                .then(function(result){
+                    in
                 })
-            </script>
-            </form></h3>
+                .catch(function(error){
+                    console.error(error);
+                })
+            </script></h3>
             <h3>paper : {{Dpaper}} </h3>
             <h3>can : {{DCan}}</h3>
         </div>
         <div class="Weekly">
-
+            <h3>Weekly</h3>
+            <h4>plastic : </h4>
+            <h4>paper : </h4>
+            <h4>can : </h4>
         </div>
         <div class="Monthly">
-
+            <h3>Monthly</h3>
+            <h4>plastic : </h4>
+            <h4>paper : </h4>
+            <h4>can : </h4>
         </div>
     </main>
     <script src = "../JS/mainSlide.js"></script>

@@ -41,7 +41,6 @@ const userRouter = require('./routes/User');
 const challengeRouter = require('./routes/Challenge');
 const howtouseRouter = require('./routes/howtouse');
 const join = require('./routes/join');
-const { create } = require('static');
 
 app.use(cors({origin: `http://localhost:/1989`}));
 passportConfig();
